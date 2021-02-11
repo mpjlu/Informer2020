@@ -41,7 +41,10 @@ parser.add_argument('--des', type=str, default='test',help='exp description')
 parser.add_argument('--loss', type=str, default='mse',help='loss function')
 parser.add_argument('--lradj', type=str, default='type1',help='adjust learning rate')
 
-parser.add_argument('--use_gpu', type=bool, default=True, help='use gpu')
+parser.add_argument('--use_gpu', dest='use_gpu', action='store_true')
+parser.add_argument('--no_gpu', dest='use_gpu', action='store_false')
+parser.set_defaults(use_gpu=True)
+
 parser.add_argument('--gpu', type=int, default=0, help='gpu')
 
 args = parser.parse_args()
